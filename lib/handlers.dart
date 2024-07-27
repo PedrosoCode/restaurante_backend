@@ -3,6 +3,8 @@ import 'package:shelf_router/shelf_router.dart';
 import 'package:restaurante_backend/db.dart'; // Importação de pacote
 import 'dart:convert';
 
+//TODO - verificar uma forma de modularizar os controladores e importar para o arquivo principal
+
 class Handlers {
   Router get router {
     final router = Router();
@@ -24,9 +26,13 @@ class Handlers {
 
     router.post('/adicionar_prato', (Request request) async {
       try {
-        var params = request.url.queryParameters;
+        var payload = await request.readAsString();
+        var params = Uri.splitQueryString(payload);
         var nome = params['nome'];
         var preco = params['preco'];
+        print(
+            'Received: nome=$nome, preco=$preco'); // Log dos parâmetros recebidos
+
         await Database().connection.query(
           'INSERT INTO tb_cad_prato (nome, preco) VALUES (@nome, @preco)',
           substitutionValues: {'nome': nome, 'preco': preco},
