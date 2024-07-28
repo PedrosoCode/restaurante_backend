@@ -10,16 +10,17 @@ class Database {
 
   Database._internal();
 
+  PostgreSQLConnection get connection => _connection;
+
   Future<void> connect() async {
     _connection = PostgreSQLConnection(
-      'localhost', // Host
-      5432, // Port
-      'db_restaurante', // Database name
-      username: 'postgres', // Username
-      password: '@Inspiron1', // Password
+      'localhost',
+      5432,
+      'db_restaurante',
+      username: 'postgres',
+      password: '@Inspiron1',
     );
     await _connection.open();
+    print('Database connection established');
   }
-
-  PostgreSQLConnection get connection => _connection;
 }
