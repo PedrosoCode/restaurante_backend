@@ -25,4 +25,16 @@ class PratosController {
       throw Exception('Error adding prato');
     }
   }
+
+  static Future<void> deletarPrato(int id) async {
+    try {
+      await Database().connection.query(
+        'DELETE FROM tb_cad_prato WHERE id = @id',
+        substitutionValues: {'id': id},
+      );
+    } catch (e) {
+      print('Error deleting prato: $e');
+      throw Exception('Error deleting prato');
+    }
+  }
 }

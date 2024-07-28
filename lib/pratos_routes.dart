@@ -7,7 +7,7 @@ class PratosRoutes {
   Router get router {
     final router = Router();
 
-    router.get('/', (Request request) async {
+    router.get('/pratos', (Request request) async {
       try {
         var pratos = await PratosController.getPratos();
         return Response.ok(jsonEncode(pratos),
@@ -37,6 +37,16 @@ class PratosRoutes {
       } catch (e) {
         print('Error adding prato: $e');
         return Response.internalServerError(body: 'Error adding prato');
+      }
+    });
+
+    router.delete('/deletar/<id>', (Request request, String id) async {
+      try {
+        await PratosController.deletarPrato(int.parse(id));
+        return Response.ok('Prato deletado');
+      } catch (e) {
+        print('Error deleting prato: $e');
+        return Response.internalServerError(body: 'Error deleting prato');
       }
     });
 
