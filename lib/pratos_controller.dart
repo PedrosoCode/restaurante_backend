@@ -37,4 +37,16 @@ class PratosController {
       throw Exception('Error deleting prato');
     }
   }
+
+  static Future<void> atualizarPrato(int id, String nome, String preco) async {
+    try {
+      await Database().connection.query(
+        'UPDATE tb_cad_prato SET nome = @nome, preco = @preco WHERE id = @id',
+        substitutionValues: {'id': id, 'nome': nome, 'preco': preco},
+      );
+    } catch (e) {
+      print('Error updating prato: $e');
+      throw Exception('Error updating prato');
+    }
+  }
 }
