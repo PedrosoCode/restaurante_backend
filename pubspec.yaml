@@ -6,10 +6,11 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
-  shelf: ^1.1.1
+  shelf: ^1.1.0
   shelf_router: ^1.0.0
   postgres: ^2.4.1
   shelf_cors_headers: ^0.1.0
+  uuid: ^3.0.4
 
 dev_dependencies:
   lints: ^1.0.0

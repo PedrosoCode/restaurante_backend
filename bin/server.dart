@@ -5,6 +5,8 @@ import 'package:shelf_cors_headers/shelf_cors_headers.dart';
 import 'package:restaurante_backend/handlers.dart';
 import 'package:restaurante_backend/db.dart';
 
+//TODO - modularizar imagens em módulo próprio
+
 void main() async {
   // Estabelecer conexão com o banco de dados
   await Database().connect();
