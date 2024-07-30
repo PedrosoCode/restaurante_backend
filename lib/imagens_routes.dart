@@ -49,6 +49,41 @@ class ImagensRoutes {
       }
     });
 
+    router.get('/imagens', (Request request) async {
+      try {
+        var imagens = await ImagensController.listarImagens();
+        return Response.ok(json.encode(imagens),
+            headers: {'Content-Type': 'application/json'});
+      } catch (e) {
+        print('Error fetching images: $e');
+        return Response.internalServerError(body: 'Error fetching images');
+      }
+    });
+
+    router.put('/<id>', (Request request, String id) async {
+      try {
+        var payload = await request.readAsString();
+        var data = json.decode(payload);
+        var nome = data['nome'];
+
+        await ImagensController.editarImagem(int.parse(id), nome);
+        return Response.ok('Imagem atualizada');
+      } catch (e) {
+        print('Error updating image: $e');
+        return Response.internalServerError(body: 'Error updating image');
+      }
+    });
+
+    router.delete('/<id>', (Request request, String id) async {
+      try {
+        await ImagensController.excluirImagem(int.parse(id));
+        return Response.ok('Imagem excluída');
+      } catch (e) {
+        print('Error deleting image: $e');
+        return Response.internalServerError(body: 'Error deleting image');
+      }
+    });
+
     return router;
   }
 }

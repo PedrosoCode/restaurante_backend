@@ -21,4 +21,37 @@ class ImagensController {
       throw Exception('Error uploading image');
     }
   }
+
+  static Future<List<Map<String, dynamic>>> listarImagens() async {
+    var results = await Database().connection.query('SELECT * FROM tb_imagens');
+    return results
+        .map((row) => {
+              'id': row[0],
+              'nome': row[1],
+              'caminho': row[2],
+              'data_criacao': row[3].toString(),
+            })
+        .toList();
+  }
+
+  static Future<void> editarImagem(int id, String nome) async {
+    try {
+      await Database().connection.query(
+          'UPDATE tb_imagens SET nome = @nome WHERE id = @id',
+          substitutionValues: {'nome': nome, 'id': id});
+    } catch (e) {
+      print('Error updating image: $e');
+      throw Exception('Error updating image');
+    }
+  }
+
+  static Future<void> excluirImagem(int id) async {
+    try {
+      await Database().connection.query('DELETE FROM tb_imagens WHERE id = @id',
+          substitutionValues: {'id': id});
+    } catch (e) {
+      print('Error deleting image: $e');
+      throw Exception('Error deleting image');
+    }
+  }
 }

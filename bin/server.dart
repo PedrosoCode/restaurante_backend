@@ -6,6 +6,7 @@ import 'package:restaurante_backend/handlers.dart';
 import 'package:restaurante_backend/db.dart';
 
 //TODO - modularizar imagens em módulo próprio
+//TODO - estruturar em routes e controllers a estrutura de pasta
 
 void main() async {
   // Estabelecer conexão com o banco de dados
