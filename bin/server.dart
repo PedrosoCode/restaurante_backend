@@ -3,7 +3,7 @@ import 'package:shelf/shelf.dart';
 import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_cors_headers/shelf_cors_headers.dart';
 import 'package:restaurante_backend/handlers.dart';
-import 'package:restaurante_backend/db.dart';
+import 'package:restaurante_backend/db/db.dart';
 
 //TODO - modularizar imagens em módulo próprio
 //TODO - estruturar em routes e controllers a estrutura de pasta

@@ -1,6 +1,6 @@
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
-import 'package:restaurante_backend/pratos_controller.dart';
+import 'package:restaurante_backend/controllers/pratos_controller.dart';
 import 'dart:convert';
 
 class PratosRoutes {

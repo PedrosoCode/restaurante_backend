@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:restaurante_backend/db.dart';
+import 'package:restaurante_backend/db/db.dart';
 import 'package:uuid/uuid.dart';
 
 class ImagensController {

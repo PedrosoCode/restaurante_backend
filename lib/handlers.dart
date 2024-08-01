@@ -1,7 +1,7 @@
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
-import 'package:restaurante_backend/imagens_routes.dart';
-import 'package:restaurante_backend/pratos_routes.dart';
+import 'package:restaurante_backend/routes/imagens_routes.dart';
+import 'package:restaurante_backend/routes/pratos_routes.dart';
 
 class Handlers {
   Router get router {

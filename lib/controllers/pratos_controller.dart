@@ -1,4 +1,4 @@
-import 'package:restaurante_backend/db.dart'; // Importação de pacote
+import 'package:restaurante_backend/db/db.dart'; // Importação de pacote
 
 class PratosController {
   static Future<List<Map<String, dynamic>>> getPratos() async {

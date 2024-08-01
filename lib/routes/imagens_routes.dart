@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:shelf/shelf.dart';
 import 'package:shelf_router/shelf_router.dart';
-import 'package:restaurante_backend/imagens_controller.dart';
+import 'package:restaurante_backend/controllers/imagens_controller.dart';
 import 'dart:convert';
 import 'package:mime/mime.dart';
 import 'package:http_parser/http_parser.dart';
